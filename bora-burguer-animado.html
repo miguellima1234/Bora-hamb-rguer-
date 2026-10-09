@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Hambúrgueres artesanais, ingredientes selecionados e muito sabor. Monte seu pedido online!">
+<title>Bora Burguer | Hamburgueria Gourmet</title>
+<style>
+:root{--red:#f20d22;--red2:#b90818;--bg:#080808;--panel:#121212;--line:#292929;--muted:#b9b9b9;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.5}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.94);backdrop-filter:blur(12px);border-bottom:1px solid #252525}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:white;font-weight:900;font-size:1.25rem;letter-spacing:-.5px}.brand-mark{width:42px;height:42px;border:2px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);font-size:24px}.brand span em{font-style:normal;color:var(--red)}nav{display:flex;gap:24px}nav a{color:#ddd;text-decoration:none;font-size:.93rem}nav a:hover{color:var(--red)}.btn{border:0;border-radius:999px;padding:13px 20px;background:var(--red);color:white;font-weight:800;display:inline-flex;justify-content:center;align-items:center;gap:8px;text-decoration:none;transition:.2s}.btn:hover{background:#ff3041;transform:translateY(-1px)}.btn.outline{background:transparent;border:1px solid #555}.btn.outline:hover{border-color:var(--red);color:#fff}.btn.full{width:100%}.cart-top{position:relative}.count{display:inline-grid;place-items:center;background:white;color:var(--red);width:22px;height:22px;border-radius:50%;font-size:.75rem}
+.hero{min-height:510px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:28px;padding:54px 0 62px;overflow:hidden}.eyebrow{color:var(--red);font-size:.76rem;letter-spacing:3px;font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(2.8rem,6vw,5.7rem);line-height:.94;letter-spacing:-3px;margin:18px 0}.hero h1 span{display:block;color:var(--red);font-style:italic}.hero p{color:#ccc;max-width:440px;font-size:1.08rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}.perks{display:flex;gap:20px;flex-wrap:wrap;color:#ddd;font-size:.85rem}.perks span{display:flex;align-items:center;gap:7px}.hero-photo{position:relative;min-height:370px;border-radius:24px;overflow:hidden;background:radial-gradient(ellipse at center,#5e150d 0,#1b0b09 46%,#080808 76%);display:grid;place-items:center}.hero-photo img{width:100%;height:100%;min-height:370px;object-fit:cover;position:absolute;inset:0;opacity:.92}.hero-badge{position:absolute;bottom:18px;left:18px;background:#080808dd;border:1px solid #ffffff22;border-radius:14px;padding:12px 16px;font-weight:800}.hero-badge b{color:var(--red)}
+section{padding:52px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}.section-head h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.05;margin:8px 0}.section-head h2 span{color:var(--red)}.section-head p{color:var(--muted);margin:8px 0 0}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0}.filter{border:1px solid #333;background:#101010;color:#ddd;border-radius:999px;padding:9px 16px}.filter.active,.filter:hover{background:var(--red);border-color:var(--red);color:white}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.product{border:1px solid #292929;background:linear-gradient(160deg,#151515,#090909);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}.product:hover{transform:translateY(-4px);border-color:#7a1821}.product img{width:100%;height:170px;object-fit:cover;background:#222}.product-body{padding:15px;display:flex;flex-direction:column;flex:1}.product h3{margin:0 0 6px;font-size:1.05rem}.product p{color:#bbb;font-size:.86rem;margin:0 0 15px;flex:1}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-size:1.12rem;color:#ff2638;font-weight:900}.add{width:38px;height:38px;border:0;border-radius:50%;background:var(--red);color:white;font-size:1.5rem;font-weight:700}
+.promo{background:linear-gradient(110deg,#1c0508,#100b0b 55%,#21070a);border-top:1px solid #321116;border-bottom:1px solid #321116}.promo-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}.promo h2{font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.05;margin:8px 0}.promo p{color:#ccc;max-width:600px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.about-grid img{width:100%;height:310px;object-fit:cover;border-radius:18px;border:1px solid #333}.about-grid p{color:#bbb}.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.checks span{background:#121212;border:1px solid #292929;border-radius:10px;padding:12px;font-size:.9rem}
+footer{border-top:1px solid #252525;background:#050505;padding:35px 0 20px}.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px}.footer-grid h3{font-size:1rem}.footer-grid p,.footer-grid a{color:#aaa;font-size:.9rem}.footer-grid a{display:block;text-decoration:none;margin:5px 0}.copyright{border-top:1px solid #222;margin-top:25px;padding-top:15px;color:#777;font-size:.8rem;display:flex;justify-content:space-between;gap:10px}
+.floating-cart{position:fixed;right:18px;bottom:18px;z-index:25;box-shadow:0 8px 30px #0009}.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:40}.overlay.open{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(470px,100%);background:#101010;border-left:1px solid #333;padding:22px;overflow-y:auto;display:flex;flex-direction:column}.drawer-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;padding-bottom:15px}.drawer-head h2{margin:0}.close{background:#222;border:1px solid #444;color:white;border-radius:50%;width:38px;height:38px;font-size:1.3rem}.cart-items{padding:15px 0;flex:1}.empty{color:#aaa;text-align:center;padding:40px 10px}.cart-item{display:grid;grid-template-columns:1fr auto;gap:10px;border-bottom:1px solid #292929;padding:13px 0}.cart-item small{display:block;color:#aaa}.qty{display:flex;align-items:center;gap:9px;margin-top:8px}.qty button{width:28px;height:28px;border:1px solid #444;background:#222;color:white;border-radius:7px}.remove{background:none!important;border:0!important;color:#ff5260!important;width:auto!important}.total-line{display:flex;justify-content:space-between;margin:7px 0;color:#ccc}.total-line.grand{font-size:1.25rem;color:white;font-weight:900;border-top:1px solid #333;padding-top:12px;margin-top:12px}.checkout{border-top:1px solid #333;padding-top:15px}.checkout h3{margin:5px 0 12px}.field{display:grid;gap:6px;margin:11px 0}.field label{font-size:.88rem;color:#ddd}.field input,.field textarea,.field select{width:100%;background:#080808;border:1px solid #383838;border-radius:9px;padding:11px 12px;color:white;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--red)}.field textarea{resize:vertical;min-height:70px}.pay-options{display:flex;gap:13px;flex-wrap:wrap;color:#ddd;font-size:.9rem}.pay-options label{display:flex;align-items:center;gap:6px}.notice{font-size:.78rem;color:#999;margin:10px 0}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:#171717;border:1px solid #3b3b3b;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:60}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){nav{gap:12px}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr;padding-top:38px}.hero-photo{min-height:320px}.hero-photo img{min-height:320px}.about-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.nav{height:66px}.brand{font-size:1rem}.brand-mark{width:36px;height:36px;font-size:20px}nav{display:none}.nav>.btn{padding:10px 13px;font-size:.82rem}.hero h1{letter-spacing:-2px}.hero{gap:22px}.hero-photo,.hero-photo img{min-height:260px}.section-head{align-items:start;flex-direction:column}.products{gap:10px}.product img{height:130px}.product-body{padding:11px}.product h3{font-size:.95rem}.product p{font-size:.8rem}.price{font-size:1rem}.add{width:34px;height:34px}.promo-inner{align-items:start;flex-direction:column;padding:10px 0}.footer-grid{grid-template-columns:1fr}.copyright{flex-direction:column}.checks{grid-template-columns:1fr}.floating-cart{right:12px;bottom:12px}}
+
+/* Animações premium: leves, responsivas e sem interferir no carrinho */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes softGlow{0%,100%{box-shadow:0 0 0 rgba(242,13,34,0)}50%{box-shadow:0 0 32px rgba(242,13,34,.18)}}
+@keyframes burgerFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(.5deg)}}
+@keyframes redPulse{0%,100%{box-shadow:0 8px 24px rgba(242,13,34,.18)}50%{box-shadow:0 8px 34px rgba(242,13,34,.38)}}
+header{animation:fadeUp .55s ease both}
+.hero-copy{animation:fadeUp .75s .08s ease both}
+.hero-photo{animation:fadeUp .85s .18s ease both;animation-name:fadeUp,softGlow;animation-duration:.85s,5s;animation-delay:.18s,1s;animation-iteration-count:1,infinite}
+.hero-photo img{transition:transform .8s ease;will-change:transform}
+.hero-photo:hover img{transform:scale(1.055)}
+.brand-mark{transition:transform .35s ease,box-shadow .35s ease}
+.brand:hover .brand-mark{transform:rotate(-10deg) scale(1.08);box-shadow:0 0 18px rgba(242,13,34,.45)}
+.btn{transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+.btn:not(.outline){animation:redPulse 4.5s ease-in-out infinite}
+.btn:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 10px 25px rgba(242,13,34,.25)}
+.filter,.add{transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+.filter:hover,.add:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(242,13,34,.25)}
+.product{animation:fadeUp .65s ease both;transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+.product:hover{transform:translateY(-7px);box-shadow:0 14px 30px rgba(0,0,0,.35),0 0 0 1px rgba(242,13,34,.12)}
+.product img{transition:transform .55s ease,filter .55s ease}
+.product:hover img{transform:scale(1.045);filter:saturate(1.12)}
+.section-head h2 span{ text-shadow:0 0 22px rgba(242,13,34,.18)}
+.promo{background-size:200% 100%;animation:promoShimmer 12s ease-in-out infinite alternate}
+@keyframes promoShimmer{from{background-position:0% 50%}to{background-position:100% 50%}}
+.floating-cart{animation:fadeUp .7s .5s ease both;transition:transform .2s ease,box-shadow .2s ease}
+.floating-cart:hover{transform:translateY(-4px);box-shadow:0 12px 34px rgba(242,13,34,.32)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio"><span class="brand-mark">♛</span><span>BORA <em>BURGUER</em><small style="display:block;font-size:.56rem;letter-spacing:3px;color:#bbb">HAMBÚRGUERES GOURMET</small></span></a>
+    <nav><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
+    <button class="btn cart-top" onclick="openCart()">🛒 Meu pedido <span class="count" id="navCount">0</span></button>
+  </div>
+</header>
+
+<main>
+<section class="wrap hero" id="inicio">
+  <div>
+    <div class="eyebrow">— Sabor que vira vício</div>
+    <h1>HAMBÚRGUERES <span>GOURMET</span></h1>
+    <p>Ingredientes selecionados, carne suculenta e aquele sabor marcante em cada mordida. Seu próximo favorito está aqui.</p>
+    <div class="hero-actions"><a class="btn" href="#cardapio">🍔 VER CARDÁPIO</a><button class="btn outline" onclick="openCart()">🛒 MONTAR PEDIDO</button></div>
+    <div class="perks"><span>✓ Ingredientes frescos</span><span>✓ Feito na hora</span><span>✓ Pedido fácil</span></div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=85" alt="Hambúrguer gourmet com queijo e salada">
+    <div class="hero-badge">🔥 <b>O sabor é real.</b> Feito na hora!</div>
+  </div>
+</section>
+
+<section id="cardapio" class="wrap">
+  <div class="section-head"><div><div class="eyebrow">Nossos lanches</div><h2>ESCOLHA SEU <span>FAVORITO</span></h2><p>Adicione os produtos ao carrinho e monte seu pedido.</p></div><button class="btn outline" onclick="openCart()">VER CARRINHO 🛒</button></div>
+  <div class="filters" id="filters">
+    <button class="filter active" data-filter="Todos">Todos</button><button class="filter" data-filter="Hambúrgueres">Hambúrgueres</button><button class="filter" data-filter="Porções">Porções</button><button class="filter" data-filter="Bebidas">Bebidas</button><button class="filter" data-filter="Combos">Combos</button>
+  </div>
+  <div class="products" id="products"></div>
+</section>
+
+<section class="promo"><div class="wrap promo-inner"><div><div class="eyebrow">Bateu a fome?</div><h2>SEU PRÓXIMO <span style="color:var(--red)">BURGUER</span><br>ESTÁ A UM CLIQUE.</h2><p>Escolha seus favoritos, confira o total e envie seu pedido pelo WhatsApp em poucos passos.</p></div><button class="btn" onclick="openCart()">FAZER MEU PEDIDO →</button></div></section>
+
+<section id="sobre" class="wrap">
+  <div class="about-grid">
+    <div><div class="eyebrow">Sobre nós</div><h2>MAIS QUE UM LANCHE.<br>É UMA <span style="color:var(--red)">EXPERIÊNCIA.</span></h2><p>Na Bora Burguer, cada hambúrguer é preparado para entregar sabor de verdade. Pães macios, ingredientes caprichados e combinações que deixam vontade de repetir.</p><div class="checks"><span>🔥 Preparado na hora</span><span>🥩 Sabor artesanal</span><span>🧀 Ingredientes selecionados</span><span>❤️ Feito com carinho</span></div></div>
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=85" alt="Hambúrguer artesanal servido com batatas">
+  </div>
+</section>
+</main>
+
+<footer id="contato"><div class="wrap"><div class="footer-grid">
+  <div><a class="brand" href="#inicio"><span class="brand-mark">♛</span><span>BORA <em style="color:var(--red);font-style:normal">BURGUER</em></span></a><p>Hambúrgueres gourmet feitos para matar sua fome.</p></div>
+  <div><h3>CONTATO</h3><p>📱 WhatsApp: (83) 99619-4053</p><p>🕒 Consulte nosso horário de atendimento pelo WhatsApp.</p></div>
+  <div><h3>LINKS RÁPIDOS</h3><a href="#inicio">Início</a><a href="#cardapio">Cardápio</a><a href="#sobre">Sobre nós</a><a href="#contato">Contato</a></div>
+</div><div class="copyright"><span>© <span id="year"></span> Bora Burguer. Todos os direitos reservados.</span><span>Feito com ❤️ para quem ama hambúrguer!</span></div></div></footer>
+
+<button class="btn floating-cart" onclick="openCart()">🛒 Carrinho (<span id="floatCount">0</span>)</button>
+<div class="overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-labelledby="cartTitle" onclick="overlayClick(event)">
+  <aside class="drawer">
+    <div class="drawer-head"><h2 id="cartTitle">Seu pedido 🛒</h2><button class="close" aria-label="Fechar carrinho" onclick="closeCart()">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="totals">
+      <div class="total-line"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
+      <div class="total-line"><span>Entrega</span><strong id="deliveryCost">A combinar</strong></div>
+      <div class="total-line grand"><span>Total dos itens</span><strong id="grandTotal">R$ 0,00</strong></div>
+    </div>
+    <div class="checkout">
+      <h3>Finalizar pedido</h3>
+      <form id="checkoutForm">
+        <div class="field"><label for="customerName">Seu nome *</label><input id="customerName" name="customerName" required placeholder="Como podemos te chamar?"></div>
+        <div class="field"><label>Como deseja receber? *</label><div class="pay-options"><label><input type="radio" name="fulfillment" value="Entrega" checked onchange="toggleAddress()"> Entrega</label><label><input type="radio" name="fulfillment" value="Retirada no local" onchange="toggleAddress()"> Retirada</label></div></div>
+        <div class="field" id="addressField"><label for="address">Endereço de entrega *</label><input id="address" name="address" placeholder="Rua, número, bairro e complemento"></div>
+        <div class="field"><label for="payment">Forma de pagamento *</label><select id="payment" name="payment" required><option value="">Selecione</option><option>Pix</option><option>Dinheiro</option><option>Cartão de crédito</option><option>Cartão de débito</option></select></div>
+        <div class="field" id="changeField"><label for="change">Precisa de troco? (se pagar em dinheiro)</label><input id="change" name="change" placeholder="Ex.: troco para R$ 50,00"></div>
+        <div class="field"><label for="notes">Observações do pedido</label><textarea id="notes" name="notes" placeholder="Ex.: sem cebola, ponto da carne..."></textarea></div>
+        <p class="notice">Ao tocar em “Enviar pedido pelo WhatsApp”, o WhatsApp será aberto com os detalhes preenchidos. O pedido só será enviado depois que você apertar Enviar no WhatsApp.</p>
+        <button type="submit" class="btn full">📲 ENVIAR PEDIDO PELO WHATSAPP</button>
+      </form>
+    </div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const WHATSAPP_NUMBER = "5583996194053"; // Número informado pela hamburgueria: (83) 99619-4053
+const products = [
+ {id:1,name:"X-Bacon",category:"Hambúrgueres",price:24.90,description:"Pão brioche, carne 180g, queijo, bacon crocante, alface, tomate e molho especial.",image:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=700&q=80"},
+ {id:2,name:"Double Cheddar",category:"Hambúrgueres",price:32.90,description:"Dois discos de carne, cheddar cremoso, cebola caramelizada e pão brioche.",image:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"},
+ {id:3,name:"X-Tudo",category:"Hambúrgueres",price:29.90,description:"Carne 180g, queijo, presunto, ovo, bacon, salada e molho da casa.",image:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"},
+ {id:4,name:"Frango Crispy",category:"Hambúrgueres",price:22.90,description:"Frango crocante, queijo, alface fresca, tomate e maionese temperada.",image:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80"},
+ {id:5,name:"Batata Crocante",category:"Porções",price:14.90,description:"Porção de batatas douradas e crocantes, perfeita para compartilhar.",image:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"},
+ {id:6,name:"Batata com Cheddar e Bacon",category:"Porções",price:21.90,description:"Batatas crocantes cobertas com cheddar cremoso e bacon.",image:"https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=700&q=80"},
+ {id:7,name:"Refrigerante Lata",category:"Bebidas",price:6.00,description:"Lata gelada de refrigerante 350 ml. Consulte os sabores disponíveis.",image:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=700&q=80"},
+ {id:8,name:"Combo Clássico",category:"Combos",price:34.90,description:"X-Bacon acompanhado de batata pequena e refrigerante lata.",image:"https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=700&q=80"}
+];
+let cart = {};
+let activeFilter = "Todos";
+const money = value => value.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+function renderProducts(){
+ const list=products.filter(p=>activeFilter==="Todos"||p.category===activeFilter);
+ document.getElementById("products").innerHTML=list.map(p=>`<article class="product"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"><div class="product-body"><h3>${p.name}</h3><p>${p.description}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button class="add" aria-label="Adicionar ${p.name}" onclick="addToCart(${p.id})">+</button></div></div></article>`).join("");
+}
+document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));renderProducts()});
+function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();showToast(products.find(p=>p.id===id).name+" adicionado ao carrinho!")}
+function changeQty(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];renderCart()}
+function removeItem(id){delete cart[id];renderCart()}
+function cartCount(){return Object.values(cart).reduce((a,b)=>a+b,0)}
+function subtotal(){return products.reduce((sum,p)=>sum+p.price*(cart[p.id]||0),0)}
+function renderCart(){
+ const items=products.filter(p=>cart[p.id]);
+ document.getElementById("navCount").textContent=cartCount();document.getElementById("floatCount").textContent=cartCount();
+ document.getElementById("cartItems").innerHTML=items.length?items.map(p=>`<div class="cart-item"><div><strong>${p.name}</strong><small>${money(p.price)} cada</small><div class="qty"><button aria-label="Diminuir ${p.name}" onclick="changeQty(${p.id},-1)">−</button><span>${cart[p.id]}</span><button aria-label="Aumentar ${p.name}" onclick="changeQty(${p.id},1)">+</button><button class="remove" onclick="removeItem(${p.id})">Remover</button></div></div><strong>${money(p.price*cart[p.id])}</strong></div>`).join(""):'<div class="empty">Seu carrinho está vazio.<br>Escolha um lanche delicioso no cardápio! 🍔</div>';
+ document.getElementById("subtotal").textContent=money(subtotal());document.getElementById("grandTotal").textContent=money(subtotal());
+}
+function openCart(){document.getElementById("cartOverlay").classList.add("open");document.body.style.overflow="hidden"}
+function closeCart(){document.getElementById("cartOverlay").classList.remove("open");document.body.style.overflow=""}
+function overlayClick(e){if(e.target.id==="cartOverlay")closeCart()}
+function toggleAddress(){const delivery=document.querySelector('input[name="fulfillment"]:checked').value==="Entrega";document.getElementById("addressField").style.display=delivery?"grid":"none";document.getElementById("address").required=delivery}
+function showToast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2300)}
+document.getElementById("checkoutForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(!cartCount()){showToast("Adicione pelo menos um produto ao carrinho.");return}
+ const form=e.currentTarget;
+ if(!form.reportValidity())return;
+ const data=new FormData(form);
+ const fulfillment=data.get("fulfillment");
+ const lines=products.filter(p=>cart[p.id]).map(p=>`• ${p.name} x${cart[p.id]} — ${money(p.price*cart[p.id])}`);
+ const total=money(subtotal());
+ let message=`🍔 *NOVO PEDIDO — BORA BURGUER*\\n\\n*Cliente:* ${data.get("customerName")}\\n*Recebimento:* ${fulfillment}`;
+ if(fulfillment==="Entrega")message+=`\\n*Endereço:* ${data.get("address")}`;
+ message+=`\\n\\n*ITENS DO PEDIDO*\\n${lines.join("\\n")}\\n\\n*Total dos itens:* ${total}\\n*Entrega:* a confirmar com a hamburgueria\\n*Forma de pagamento:* ${data.get("payment")}`;
+ if(data.get("payment")==="Dinheiro"&&data.get("change"))message+=`\\n*Troco:* ${data.get("change")}`;
+ if(data.get("notes"))message+=`\\n*Observações:* ${data.get("notes")}`;
+ message+="\\n\\nPor favor, confirme o pedido e o prazo. Obrigado!";
+ const url=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+ window.open(url,"_blank","noopener,noreferrer");
+});
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();renderCart();toggleAddress();
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
+</script>
+
+<script>
+// Animação de entrada ao rolar a página; conteúdo permanece visível em navegadores sem suporte.
+(function(){
+  const targets = document.querySelectorAll('.section-head, .product, .promo-inner, .about-grid, .footer-grid');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  targets.forEach((el, i) => { el.classList.add('reveal'); el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms'; });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, {threshold: 0.08});
+  targets.forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>
